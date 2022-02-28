@@ -1,0 +1,26 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.19.2",
+    "why-is-node-running": "^2.2.1"
+  },
+  "dependencies": {
+    "@extra/recaptcha": "^4.2.1-next.587",
+    "adm-zip": "^0.5.9",
+    "axios": "^0.26.0",
+    "commander": "^8.3.0",
+    "csv-parse": "^5.0.4",
+    "express": "^4.17.3",
+    "jszip": "^3.7.1",
+    "playwright-extra": "^1.0.1"
+  }
+}
