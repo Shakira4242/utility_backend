@@ -4,7 +4,7 @@ import AdmZip from "adm-zip";
 import path from "path";
 import {parse} from 'csv-parse';
 
-export async function account(account_number, zip_code){
+export async function amount(account_number, zip_code){
   const browser = await firefox.launch({
     headless: true
   });
