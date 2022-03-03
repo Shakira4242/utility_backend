@@ -1,11 +1,11 @@
-import { firefox } from 'playwright';
+import { chromium } from 'playwright';
 import fs from "fs";
 import AdmZip from "adm-zip";
 import path from "path";
 import {parse} from 'csv-parse';
 
 export async function amount(account_number, zip_code){
-  const browser = await firefox.launch({
+  const browser = await chromium.launch({
     headless: true
   });
   const context = await browser.newContext({ acceptDownloads: true });
@@ -40,7 +40,7 @@ export async function amount(account_number, zip_code){
 }
 
 export async function account(account_number, zip_code){
-  const browser = await firefox.launch({
+  const browser = await chromium.launch({
     headless: true
   });
   const context = await browser.newContext({ acceptDownloads: true });
@@ -75,7 +75,7 @@ export async function account(account_number, zip_code){
 }
 
 export async function pay(){
-  const browser = await firefox.launch({
+  const browser = await chromium.launch({
     headless: true
   });
   const context = await browser.newContext({ acceptDownloads: true });

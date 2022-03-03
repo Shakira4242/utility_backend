@@ -1,4 +1,4 @@
-import { firefox } from 'playwright';
+import { chromium } from 'playwright';
 import fs from "fs";
 import AdmZip from "adm-zip";
 import path from "path";
@@ -44,7 +44,7 @@ async function extractArchive(filepath) {
 }
 
 export async function amount(username, password){
-  const browser = await firefox.launch({
+  const browser = await chromium.launch({
     headless: true
   });
   const context = await browser.newContext({ acceptDownloads: true });
@@ -83,7 +83,7 @@ export async function amount(username, password){
 }
 
 export async function create_account(first_name, last_name, ca1, ca2, ca3, street_num, street_name, city, zip_code, ssn1, ssn2, ssn3, username, email){
-  const browser = await firefox.launch({
+  const browser = await chromium.launch({
     headless: true
   });
   const context = await browser.newContext();
@@ -133,7 +133,7 @@ export async function create_account(first_name, last_name, ca1, ca2, ca3, stree
 
 export function pay(){
   (async()=>{
-    const browser = await firefox.launch({
+    const browser = await chromium.launch({
       headless: true
     });
     const context = await browser.newContext({ acceptDownloads: true });
@@ -217,7 +217,7 @@ export function pay(){
 
 function browserStuff(){
   (async () => {
-    const browser = await firefox.launch({
+    const browser = await chromium.launch({
       headless: true
     });
     const context = await browser.newContext({ acceptDownloads: true });
