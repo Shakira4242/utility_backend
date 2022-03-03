@@ -6,21 +6,13 @@ const PORT = process.env.PORT || 3000
 const app = express()
 
 app.get("/cps_amount", async (req, res) => {
-	try{
-		const response = await cps_amount('Rajashekara', 'Divinespot60$')
-		res.status(200).json(response)
-	}catch{
-		res.status(400).json(response)
-	}
+	const response = await cps_amount('Rajashekara', 'Divinespot60$')
+	res.status(200).json(response)
 })
 
 app.get("/saws_amount", async (req, res) => {
-	try{
-		const response = await saws_amount('001021658-0721990-0003', '78023')
-		res.status(200).json(response)
-	}catch{
-		res.status(400).json("hello")
-	}
+	const response = await saws_amount('001021658-0721990-0003', '78023')
+	res.status(200).json(response)
 })
 
 app.listen(PORT, function () {
