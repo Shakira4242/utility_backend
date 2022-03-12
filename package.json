@@ -5,22 +5,31 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "build": "postcss ./src/styles.css -o ./public/dist/styles.css",
+    "watch": "onchange 'tailwind.config.cjs' './public/**/*.html' './src/**/*.css' -- npm run build",
+    "prod": "NODE_ENV=production postcss ./src/styles.css -o ./public/dist/styles.css"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "onchange": "^7.1.0",
     "playwright": "^1.19.2",
+    "postcss": "^8.4.8",
+    "tailwindcss": "^3.0.23",
     "why-is-node-running": "^2.2.1"
   },
   "dependencies": {
     "@extra/recaptcha": "^4.2.1-next.587",
+    "@supabase/supabase-js": "^1.31.1",
     "adm-zip": "^0.5.9",
     "axios": "^0.26.0",
     "commander": "^8.3.0",
     "csv-parse": "^5.0.4",
     "express": "^4.17.3",
     "jszip": "^3.7.1",
-    "playwright-extra": "^1.0.1"
+    "playwright-extra": "^1.0.1",
+    "postcss-cli": "^8.3.1",
+    "url-parse": "^1.5.10"
   }
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			body {
+				background-color: #323233;
+			}
+		</style>
+	</head>
+	<body>
+		<script
+		  src="https://auth.magic.link/pnp/callback"
+		  data-magic-publishable-api-key="pk_live_1E8C964AF5E72CFF">
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+		<script>
+			const { createClient } = supabase
+		  const _supabase = createClient('https://vdwvfnzzztqewzwusrie.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MTU4MjY1MiwiZXhwIjoxOTU3MTU4NjUyfQ.YoS5G1P3Lg87zUQDQJuDOMkKDbuLi5XFYB8DLgpnrnw')
+		  window.addEventListener('@magic/ready', (event) => {
+		    const { magic, idToken, userMetadata, oauth } = event.detail;;
+		    console.log(userMetadata);
+		    (async function (){
+		    	const { data, error } = await _supabase
+  				.from('users')
+  				.upsert({ email: userMetadata.email })
+		    })()
+		  });
+		</script>
+	</body>
+</html>
