@@ -8,11 +8,18 @@
   <link rel="stylesheet" href="dist/styles.css" />
   <script src="dist/script.js"></script>
   <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
+  <!-- Import the component -->
+	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+	<script src="https://gumroad.com/js/gumroad.js"></script>
 	<html>
 	<style>
 		babylon {
 		  width: 500px;
 		  height: 500px;
+		}
+
+		button:hover{
+			background-color: gray;
 		}
 	</style>
 </head>
@@ -21,19 +28,11 @@
   <!-- Navigation -->
   <nav class="flex justify-between py-6 lg:px-48 md:px-12 px-4 content-center bg-current">
     <div class="flex items-center">
-      <img src='https://vdwvfnzzztqewzwusrie.supabase.in/storage/v1/object/public/models/replicator_magic(4).jpg' alt="Logo" class="h-20" />
+      <img src='https://vdwvfnzzztqewzwusrie.supabase.in/storage/v1/object/public/models/utility.jpg' alt="Logo" class="h-20" />
     </div>
     <ul class="font-montserrat items-center hidden md:flex">
-      <li class="mx-3 ">
-        <a class="growing-underline" href="howitworks">
-          How it works
-        </a>
-      </li>
       <li class="growing-underline mx-3">
-        <a href="features">Features</a>
-      </li>
-      <li class="growing-underline mx-3">
-        <a href="pricing">Pricing</a>
+        <a class="gumroad-button" href="https://akashs.gumroad.com/l/yeakza?wanted=true">Purchase license</a>
       </li>
     </ul>
 
@@ -48,13 +47,7 @@
     </div>
     <ul class="font-montserrat flex flex-col mx-8 my-24 items-center text-3xl">
       <li class="my-6">
-        <a href="howitworks">How it works</a>
-      </li>
-      <li class="my-6">
-        <a href="features">Features</a>
-      </li>
-      <li class="my-6">
-        <a href="pricing">Pricing</a>
+        <a class="gumroad-button" href="https://akashs.gumroad.com/l/yeakza?wanted=true">Purchase license</a>
       </li>
     </ul>
   </div>
@@ -63,23 +56,14 @@
   <section
     class="flex justify-between py-6 lg:px-48 md:px-12 px-4 content-center ">
     <div class="md:flex-1 md:mr-10">
-      <h1 class="text-5xl mb-7">
-				Download assets from decentraland
-      </h1>
+      <image src="https://vdwvfnzzztqewzwusrie.supabase.in/storage/v1/object/public/models/utility_replicator(4).jpg"/>
     </div>  
   </section>
 
-  <section
-    class="content-center sectionSize">
-    <div class="content-center">
-      <babylon model="https://vdwvfnzzztqewzwusrie.supabase.in/storage/v1/object/public/models/file.glb"></babylon>
-		</div>
-	</section>
-
   <!-- How it works -->
-  <section class="bg-black text-white sectionSize">
+  <section class="bg-black text-white sectionSize ">
     <div>
-      <h2 class="secondaryTitle bg-100%">How it works</h2>
+      <h2 class="secondaryTitle font-montserrat">How it works</h2>
     </div>
     <div class="flex flex-col md:flex-row">
       <div class="flex-1 mx-8 flex flex-col items-center my-4">
@@ -88,16 +72,16 @@
         </div>
         <h3 class="font-montserrat font-medium text-xl mb-2">Enter url</h3>
 				<p class="text-center font-montserrat">
-          Enter a valid decentraland marketplace url
+          Enter a decentraland marketplace url.
         </p>
       </div>
       <div class="flex-1 mx-8 flex flex-col items-center my-4">
         <div class="border-2 rounded-full bg-secondary text-black h-12 w-12 flex justify-center items-center mb-3">
           2
         </div>
-        <h3 class="font-montserrat font-medium text-xl mb-2">Preview</h3>
+        <h3 class="font-montserrat font-medium text-xl mb-2">License key</h3>
         <p class="text-center font-montserrat">
-          Preview
+          Purchase a license key
         </p>
       </div>
       <div class="flex-1 mx-8 flex flex-col items-center my-4">
@@ -106,7 +90,7 @@
         </div>
         <h3 class="font-montserrat font-medium text-xl mb-2">Download</h3>
         <p class="text-center font-montserrat">
-          Download the glb file
+          Preview, and download the glb file
         </p>
       </div>
     </div>
@@ -120,11 +104,26 @@
 		        Enter decentraland wearable 
 		      </label>
 		      <input id="preview_url" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="decentraland wearable url">
+		      <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+		        Enter License Key 
+		      </label>
+		      <input id="license_key" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="********-********-********-********">
+
 		      <div class="md:flex md:items-center">
-				    <div class="md:w-1/3"></div>
-				    <div class="md:w-2/3">
-				      <button id="preview" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">
+				    <div>
+				      <button id="preview" class="bg-white text-black hover:gray font-bold py-2 px-4 rounded" type="button">
 				        Preview
+				      </button>
+				    </div>
+				  </div>
+
+				  <div class="md:flex md:items-center py-2">
+				  </div>
+
+				  <div class="md:flex md:items-center">
+				    <div>
+				      <button id="download" class="bg-white text-black hover:gray font-bold py-2 px-4 rounded" type="button">
+				        Download
 				      </button>
 				    </div>
 				  </div>
@@ -140,59 +139,11 @@
 		</div>
 	</section>
 
-  <!-- FAQ  -->
-  <section class="sectionSize items-start pt-8 md:pt-36 bg-black text-white">
-    <div>
-      <h2 class="secondaryTitle bg-highlight3 p-10 mb-0 bg-center bg-100%">
-        FAQ
-      </h2>
-    </div>
-
-    <div toggleElement class="w-full py-4">
-      <div class="flex justify-between items-center">
-        <div question class="font-montserrat font-medium mr-auto">
-          Where can I get this HTML template?
-        </div>
-        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
-      </div>
-      <div answer class="font-montserrat text-sm font-extralight pb-8 hidden">
-        You can download it on Gumroad.com
-      </div>
-    </div>
-    <hr class="w-full bg-white" />
-
-    <div toggleElement class="w-full py-4">
-      <div class="flex justify-between items-center">
-        <div question class="font-montserrat font-medium mr-auto">
-          Is this HTML template free?
-        </div>
-        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
-      </div>
-      <div answer class="font-montserrat text-sm font-extralight pb-8 hidden">
-        Yes! For you it is free.
-      </div>
-    </div>
-    <hr class="w-full bg-white" />
-
-    <div toggleElement class="w-full py-4">
-      <div class="flex justify-between items-center">
-        <div question class="font-montserrat font-medium mr-auto">
-          Am I awesome?
-        </div>
-        <img src='dist/assets/logos/CaretRight.svg' alt="" class="transform transition-transform" />
-      </div>
-      <div answer class="font-montserrat text-sm font-extralight pb-8 hidden">
-        Yes! No doubt about it.
-      </div>
-    </div>
-    <hr class="w-full bg-white" />
-
-  </section>
-
+ 
   <!-- Footer -->
   <section class="bg-black sectionSize">
     <div class="mb-4">
-      <img src='https://vdwvfnzzztqewzwusrie.supabase.in/storage/v1/object/public/models/replicator_magic(4).jpg' alt="Logo" class="h-40" />
+      <img src='https://vdwvfnzzztqewzwusrie.supabase.in/storage/v1/object/public/models/utility(2).jpg' alt="Logo" class="h-40" />
     </div>
     <div class="flex mb-8">
       <a href="#">
