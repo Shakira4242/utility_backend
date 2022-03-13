@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "node index.js",
     "build": "postcss ./src/styles.css -o ./public/dist/styles.css",
     "watch": "onchange 'tailwind.config.cjs' './public/**/*.html' './src/**/*.css' -- npm run build",
     "prod": "NODE_ENV=production postcss ./src/styles.css -o ./public/dist/styles.css"
